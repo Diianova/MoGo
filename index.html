@@ -8,9 +8,21 @@
         <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat:400,700|Roboto:300i,400" rel="stylesheet">
     </head>
     <body>
-        <div class="sm-debug">
+                <div class="sm-debug">
             <div>
                 <div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                     <div></div>
                     <div></div>
                     <div></div>
@@ -27,23 +39,26 @@
             </div>
         </div>
         <header class="header">
-            <div class="container">
-                <div class="header__items">
-                    <div class="header__logo">
-                        <a href="#">MoGo</a>
-                    </div>
-                    <nav class="menu">
-                        <ul class="menu__list">
-                            <li class="menu__item"><a class="menu__link" href="#">About</a></li>
-                            <li class="menu__item"><a class="menu__link" href="#">Service</a></li>
-                            <li class="menu__item"><a class="menu__link" href="#">Work</a></li>
-                            <li class="menu__item"><a class="menu__link" href="#">Blog</a></li>
-                            <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
-                            <li class="menu__item"><a class="menu__link" href="#"><i class="icon-basket"></i></a></li>
-                            <li class="menu__item"><a class="menu__link" href="#"><i class="icon-search"></i></a></li>
-                        </ul>
-                    </nav>
+            <div class="header__items js-menu">
+                <div class="header__logo">
+                    <a href="#">MoGo</a>
                 </div>
+                <nav class="menu">
+                    <ul class="menu__list js-menu-list">
+                        <li class="menu__item"><a class="menu__link" href="#about">About</a></li>
+                        <li class="menu__item"><a class="menu__link" href="#service">Service</a></li>
+                        <li class="menu__item"><a class="menu__link" href="#work">Work</a></li>
+                        <li class="menu__item"><a class="menu__link" href="#blog">Blog</a></li>
+                        <li class="menu__item"><a class="menu__link" href="#contact">Contact</a></li>
+                        <li class="menu__item"><a class="menu__link" href="#"><i class="icon-basket"></i></a></li>
+                        <li class="menu__item"><a class="menu__link" href="#"><i class="icon-search"></i></a></li>
+                    </ul>
+                </nav>
+                <button class="menu-bnt js-menu-bnt" type="button">
+                    <span class="menu-bnt__icon js-menu-btn-icon"></span>
+                </button>
+            </div>
+            <div class="container">
                 <h2>Create template</h2>
                 <h1>Welcome<br> to mogo</h1>
                 <a href="#" class="header__btn">Learn more</a>
@@ -56,7 +71,7 @@
             </div>
         </header>
 
-        <section class="about">
+        <section id="about" class="about">
             <div class="container">
                 <div class="h3sub">What we do</div>
                 <h3>Story about us</h3>
@@ -176,7 +191,7 @@
             </div>
         </section>
 
-        <section class="offer">
+        <section id="service" class="offer">
             <div class="container">
                 <div class="h3sub">Service</div>
                 <h3>What we do</h3>
@@ -323,7 +338,7 @@
             </div>
         </section>
 
-        <section class="projects">
+        <section id="work" class="projects">
             <div class="container">
                 <div class="h3sub">What we do</div>
                 <h3>Some of our work</h3>
@@ -413,7 +428,7 @@
             </div>
         </section>
 
-        <section class="blog">
+        <section id="blog" class="blog">
             <div class="container">
                 <div class="h3sub">Our stories</div>
                 <h3>LAtest blog</h3>
@@ -466,7 +481,7 @@
             </div>
         </section>
 
-        <section class="map">
+        <section id="contact" class="map">
             <div class="container">
                 <i class="map__icon icon-location"></i>
                 <a herf="#" class="map__link">Open Map</a>
@@ -571,5 +586,8 @@
                 <div class="copyright">&copy; MoGo free PSD template by <span>Laaqiq</span></div>
             </div>
         </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>

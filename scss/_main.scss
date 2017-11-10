@@ -12,114 +12,8 @@ a{
     text-decoration: none;
 }
 
-//reset defaults styles for scroll
-::-webkit-scrollbar-button {
-background-image:url('');
-background-repeat:no-repeat;
-width:5px;
-height:0px;
-}
-
-::-webkit-scrollbar-track {
-background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
--webkit-border-radius: 5px;
-border-radius: 5px;
-background-color:$color_turquoise;
-}
-
-::-webkit-scrollbar-thumb:hover{
-background-color:#60d2bd;
-}
-
-::-webkit-resizer{
-background-image:url('');
-background-repeat:no-repeat;
-width:4px;
-height:0px;
-}
-
-::-webkit-scrollbar{
-width: 7px;
-}
-
 .container{
     @include wrapper();
-}
-
-// .sm-debug{
-//     @include debug(rgba(0, 0, 0, 0.5), 1px solid #ff0);
-// }
-
-.header{
-	background-image: url('../img/main-banner-bg.jpg');
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	text-align: center;
-
-	&__items{
-		display: flex;
-		justify-content: space-between;
-		padding: 30px 0;
-	}
-
-	&__logo{
-		a{
-			@extend %bold-m;
-			font-size: 30px;
-			color: $color_white;
-		}
-	}
-	&__btn{
-		@extend %bold-m;
-	    padding: 10px 30px;
-		box-sizing: border-box;
-		background: transparent;
-		border: 2px solid $color_white;
-		text-transform: uppercase;
-		font-size: 14px;
-		color: $color_white;
-		transition: background .3s;
-		&:hover{
-			background: rgba(255, 255, 255, .2);
-		}
-	}
-}
-
-.menu{
-	&__list{
-		@extend %regular-r;
-		display: flex;
-		font-size: 14px;
-		text-transform: uppercase;
-	}
-	&__item{
-
-		a{
-			position: relative;
-			padding: 10px 15px;
-			display: block;
-			color: $color_white;
-			transition: all .3s;
-			&:hover{
-				color: $color_yellow;
-				&:after{
-					content: "";
-					position: absolute;
-					bottom: 0;
-					left: 50%;
-					margin-left: -32%;
-					width: 64%;
-					height: 2px;
-					background: $color_yellow;
-				}
-			}
-		}
-	}
 }
 
 h1{
@@ -141,13 +35,31 @@ h1{
 		height: 2px;
 		background: $color_white;
 	}
+	@include sm-block{
+		font-size: 80px;
+	}
+	@include s-block{
+		font-size: 60px;
+	}
+	@include xs-block{
+		font-size: 40px;
+	}
 }
 
 h2{
 	@extend %regular-ks;
-	margin: 70px 0 20px;
+	margin: 1em 0 0.28em;
 	font-size: 72px;
 	color: $color_white;
+	@include sm-block{
+		font-size: 48px;
+	}
+	@include s-block{
+		font-size: 36px;
+	}
+	@include xs-block{
+		font-size: 24px;
+	}
 }
 
 h3{
@@ -182,6 +94,9 @@ h3{
 	text-align: center;
 	font-size: 15px;
 	color: $color_gray;
+	@include sm-block{
+		margin: 30px 0 70px;
+	}
 }
 
 h4{
@@ -198,29 +113,206 @@ h5{
 	color: $color_black;
 }
 
+.header{
+	background-image: url('../img/main-banner-bg.jpg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	text-align: center;
+
+	&__items{
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		padding: 30px 0;
+
+		&_bg{
+			background-color: #f38181;
+		}
+	}
+
+	&__logo{
+		padding: 0 30px;
+		@include md-block{
+			padding: 0 20px;
+		}
+		@include sm-block{
+			padding: 0 15px;
+		}
+		@include s-block{
+			padding: 0 10px;
+		}
+
+		a{
+			@extend %bold-m;
+			font-size: 30px;
+			color: $color_white;
+		}
+	}
+	&__btn{
+		@extend %bold-m;
+	    padding: 10px 30px;
+		box-sizing: border-box;
+		background: transparent;
+		border: 2px solid $color_white;
+		text-transform: uppercase;
+		font-size: 14px;
+		color: $color_white;
+		transition: background .3s;
+		&:hover{
+			background: rgba(255, 255, 255, .2);
+		}
+	}
+}
+
+.menu{
+	z-index: 10;
+    @include sm-block{
+        position: absolute;
+        top: 90%;
+        width: 100%;
+        left: 0;
+        overflow: hidden;
+    }
+	&__list{
+		@extend %regular-r;
+		display: flex;
+		font-size: 14px;
+		text-transform: uppercase;
+        @include sm-block{
+        	padding-bottom: 30px;
+            flex-direction: column;
+            background-image: linear-gradient(#f38181,#fce38a);
+            transform: translateY(-101%);
+            font-size: 18px;
+        }
+	}
+	&__item{
+		a{
+			position: relative;
+			padding: 10px 15px;
+			display: block;
+			color: $color_white;
+			transition: all .3s;
+			&:hover{
+				color: $color_yellow;
+				&:after{
+					content: "";
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					margin-left: -32%;
+					width: 64%;
+					height: 2px;
+					background: $color_yellow;
+					@include sm-block{
+						margin-left: auto;
+						left: 0;
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+    &_show {
+        @include sm-block{
+            transform: translateY(0);
+        }
+    }
+}
+
+.menu-bnt{
+    display: none;
+    position: absolute;
+    right: 5px;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    width: 30px;
+    height: 30px;
+    padding-right: 15px;
+    background: 0;
+    border: 0;
+    user-select: none;
+    outline: 0;
+
+    @include sm-block{
+        display: flex;
+        cursor: pointer;
+    }
+    &__icon{
+        position: relative;
+        display: inline-block;
+        width: 30px;
+        height: 3px;
+        vertical-align: bottom;
+        background: $color_white;
+        transition: background .3s .5s;
+
+        &:before{
+            top: 10px;
+        }
+
+        &:after{
+            top: -10px;
+        }
+
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: $color_white;
+            transform-origin: 50% 50%;
+            transition: top .3s .3s,transform .3s;
+        }
+
+        &_show {
+            background-color: transparent;
+
+            &:before {
+                transform: rotate3d(0,0,1,45deg);
+            }
+
+            &:after {
+                transform: rotate3d(0,0,1,-45deg);
+            }
+
+            &:before, &:after {
+                transition: top .3s,transform .3s .5s;
+                top: 0;
+            }
+        }
+    }
+}
+
 .banner-slider{
 	@include row-flex();
-	margin-top: 150px;
+	margin-top: 9em;
+	font-size: 16px;
+	@include sm-block{
+		font-size: 11px;
+	}
+	@include s-block{
+		font-size: 6px;
+	}
 	&__item{
 		@include col();
 		@include size(3);
 		@extend %regular-m;
-
+		padding: 1.6em 0;
+		border-top: 2px solid $color_white;
 		text-align: left;
 		text-transform: uppercase;
-		font-size: 18px;
+		font-size: 1.3em;
 		color: $color_white;
 
 		span{
 			@extend %bold-m;
-			font-size: 24px;
+			font-size: 1.5em;
 		}
-	}
-}
-.banner-slider{
-	&__item{
-		padding: 25px 0;
-		 border-top: 2px solid $color_white;
 	}
 }
 
@@ -232,6 +324,7 @@ h5{
 		&__item{
 			@include col-padding();
 			@include size(4);
+			@include size-xs(12);
 		}
 	}
 }
@@ -242,23 +335,38 @@ h5{
 		display: flex;
 	}
 	&__item{
-		padding: 80px 0;
-		width: 20vw;
+		padding: 60px 0;
+		width: 20%;
 		text-align: center;
 		color: #fff;
 		border-right: 1px solid #fff;
 		&:first-child{
 			border-left: 1px solid #fff;
 		}
+
+		@include sm-block{
+			padding: 30px 0;
+		}
 		.amount{
 			@extend %bold-m;
 			display: block;
 			font-size: 72px;
+			@include sm-block{
+				font-size: 40px;
+			}
 		}
 		.description{
 			@extend %regular-m;
+			padding: 0 10px;
 			text-transform: uppercase;
 			font-size: 14px;
+			@include sm-block{
+				font-size: 10px;
+			}
+			@include xs-block{
+				padding: 0;
+			}
+
 		}
 	}
 }
@@ -266,22 +374,42 @@ h5{
 .service{
 	&__wrapper{
 		@include row-flex();
-
 		margin: 40px 0 120px;
+
+		@include sm-block{
+			margin: 40px 0 60px;
+		}
 
 		.block{
 			@include col-padding();
 			@include size(4);
-
+			@include size-sm(6);
+			@include size-s(12);
 			margin-top: 40px;
 			padding-bottom: 40px;
 			display: flex;
 			&:nth-child(-n+3){
 				border-bottom: 1px solid #e5e5e5;
 			}
+
+			@include sm-block{
+				&:nth-child(-n+4){
+					border-bottom: 1px solid #e5e5e5;
+				}
+			}
+
+			@include s-block{
+				&:nth-child(-n+5){
+					border-bottom: 1px solid #e5e5e5;
+				}
+			}
+
 			&__img{
 				width: 30%;
 				text-align: center;
+				@include sm-block{
+					width: 25%;
+				}
 
 				img{
 					width: 40px;
@@ -289,6 +417,9 @@ h5{
 			}
 			&__info{
 				width: 70%;
+				@include sm-block{
+					width: 75%;
+				}
 			}
 
 			&__paragraph{
@@ -309,12 +440,19 @@ h5{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
+
+	@include sm-block{
+		margin-bottom: 60px;
+	}
 	&__imgs{
 		position: relative;
 		text-align: center;
 	}
 	&__img-tablet{
 		margin-bottom: -4px;
+		@include sm-block{
+			max-width: 50%;
+		}
 	}
 	&__img-phone{
 		position: absolute;
@@ -322,6 +460,11 @@ h5{
 		margin-bottom: -90px;
 		left: 50%;
 		margin-left: 100px;
+		@include sm-block{
+			margin-left: 15%;
+			margin-bottom: -10%;
+			max-width: 25%;
+		}
 	}
 }
 .offer{
@@ -331,10 +474,22 @@ h5{
 	&__img{
 		@include col();
 		@include size(6);
+		@include size-sm(10);
+		@include shift-sm-left(1);
+		@include size-s(12);
+		@include shift-s-left(0);
+		@include sm-block{
+			text-align: center;
+			margin-bottom: 30px;
+		}
 	}
 	&__accordion{
 		@include col();
 		@include size(6);
+		@include size-sm(10);
+		@include shift-sm-left(1);
+		@include size-s(12);
+		@include shift-s-left(0);
 	}
 }
 
@@ -367,6 +522,39 @@ h5{
 		font-size: 15px;
 		line-height: 24px;
 		color: $color_gray;
+
+		//changing defaults styles for scroll
+		::-webkit-scrollbar-button {
+			background-image:url('');
+			background-repeat:no-repeat;
+			width:5px;
+			height:0px;
+		}
+
+		::-webkit-scrollbar-track {
+			background-color: transparent;
+		}
+
+		::-webkit-scrollbar-thumb {
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			background-color:$color_turquoise;
+		}
+
+		::-webkit-scrollbar-thumb:hover{
+			background-color:#60d2bd;
+		}
+
+		::-webkit-resizer{
+			background-image:url('');
+			background-repeat:no-repeat;
+			width:4px;
+			height:0px;
+		}
+
+		::-webkit-scrollbar{
+			width: 7px;
+		}
 		&_active{
 			display: block;
 		}
@@ -391,6 +579,9 @@ h5{
 		margin: 0 auto;
 		width: 90%;
 		display: flex;
+		@include s-block{
+			flex-direction: column;
+		}
 	}
 	&__icon{
 	    min-width: 150px;
@@ -401,6 +592,14 @@ h5{
 	    border: 2px solid #95e1d3;
 	    color: #95e1d3;
 	    font-size: 72px;
+	    @include s-block{
+    	    min-width: auto;
+		    width: 100px;
+		    height: 100px;
+		    align-self: center;
+		    margin: 30px 20px;
+		    font-size: 60px;
+	    }
 	}
 	&__photo{
 		position: relative;
@@ -408,6 +607,15 @@ h5{
 	    height: 215px;
 	    border-radius: 50%;
 		overflow: hidden;
+
+		@include sm-block{
+		    min-width: 150px;
+    		height: 150px;
+    		align-self: center;
+		}
+		@include s-block{
+		    margin: 30px 20px;
+	    }
 		img{
 		    height: 100%;
 		    width: auto;
@@ -420,14 +628,35 @@ h5{
 	}
 	&__review{
 		margin: 0 55px;
+		width: 75%;
+		@include s-block{
+		    margin: 0 20px;
+		    width: 90%;
+		    text-align: justify;
+		}
+		@include xs-block{
+			margin: 0 25px;
+		    width: 80%;
+		    font-size: 14px;
+		}
 		&_photo{
 			align-self: center;
+
+			@include sm-block{
+				margin: 0 40px;
+			}
 		}
 		p{
 			@extend %lightItalic-r;
 			padding-bottom: 30px;
 			font-size: 24px;
 			color: $color_gray;
+			@include sm-block{
+				font-size: 18px;
+			}
+			@include s-block{
+				font-size: 14px;
+			}
 		}
 		span{
 			@extend %regular-ks;
@@ -440,6 +669,9 @@ h5{
 				width: 60px;
 				height: 3px;
 				background: $color_pink;
+			}
+			@include s-block{
+				font-size: 18px;
 			}
 		}
 	}
@@ -462,19 +694,19 @@ h5{
 	.person{
 		@include col();
 		@include size(4);
+		@include size-xs(12);
 
 		text-align: center;
 
 		&__photo{
-			background: $color_turquoise;
 			cursor: pointer;
 
 			img{
 				vertical-align: middle;
-				transition: all .5s;
-				&:hover{
-					transform: translate(-10px, -10px);
-				}
+				// transition: all .5s;
+				// &:hover{
+				// 	transform: translate(-10px, -10px);
+				// }
 			}
 		}
 
@@ -505,6 +737,12 @@ h5{
 	&__item{
 		@include col();
 		@include size(2);
+		@include size-s(4);
+		@include size-xs(6);
+
+		@include s-block{
+			margin-bottom: 30px;
+		}
 
 		display: flex;
     	justify-content: center;
@@ -576,9 +814,14 @@ h5{
 		.client{
 			@include col();
 			@include size(6);
-
+			@include size-s(12);
 			margin-bottom: 30px;
 			display: flex;
+
+			@include xs-block{
+				margin-bottom: 60px;
+				flex-direction: column;
+			}
 
 			&__photo{
 				flex: 1 0 30%;
@@ -587,6 +830,9 @@ h5{
 			&__opinion{
 				flex: 1 1 55%;
 				font-size: 14px;
+				@include xs-block{
+					text-align: center;
+				}
 
 				.name{
 					@extend %regular-m;
@@ -605,6 +851,9 @@ h5{
 						width: 60px;
 						height: 2px;
 						background: $color_pink;
+						@include xs-block{
+							margin: 0 auto 15px;
+						}
 					}
 				}
 				.review{
@@ -627,9 +876,14 @@ h5{
 .story{
 	@include col();
 	@include size(4);
-
+	@include size-s(12);
 	display: flex;
 	flex-direction: column;
+	@include s-block{
+		width: 80%;
+		margin: 0 auto 30px;
+		text-align: center;
+	}
 
 	.story-banner{
 		position: relative;
@@ -666,9 +920,12 @@ h5{
 		margin: auto 0 0;
 		padding: 20px 0;
     	border-top: 1px solid #ccc;
-		color: $color_gray;
+    	@include s-block{
+    		text-align: left;
+    	}
 		i{
 			@extend %lightItalic-r;
+			color: $color_gray;
 
 			&:before{
 				color: $color_turquoise;
@@ -723,14 +980,23 @@ h5{
 		&_1{
 			@include col();
 			@include size(5);
+			@include size-sm(12);
+
+			@include sm-block{
+				padding-bottom: 70px;
+			}
 		}
 		&_2{
 			@include col();
 			@include size(4);
+			@include size-sm(7);
+			@include size-s(12);
 		}
 		&_3{
 			@include col();
 			@include size(3);
+			@include size-sm(5);
+			@include size-s(12);
 		}
 	}
 	&__subhead{
@@ -789,7 +1055,9 @@ h5{
 	justify-content: space-between;
 
 	&__img{
-		vertical-align: middle;
+		img{
+			vertical-align: middle;
+		}
 	}
 
 	&__cont{
@@ -834,6 +1102,7 @@ h5{
 }
 
 .form{
+	text-align: center;
 
 	&__input{
 		@extend %lightItalic-r;

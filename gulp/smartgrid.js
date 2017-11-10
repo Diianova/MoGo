@@ -4,10 +4,10 @@ const settings = {
     filename: '_smart-grid',
     columns: 12,
     outputStyle: 'scss',
-    offset: '30px',
+    offset: '4%',
     container: {
         maxWidth: '1200px',
-        fields: '30px'
+        fields: '30px',
     },
     breakPoints: {
         md: {
@@ -15,14 +15,14 @@ const settings = {
             fields: '20px'
         },
         sm: {
-            width: '780px',
-            fields: '15px'
+            width: '781px',
+            fields: '15px',
         },
-        xs: {
-            width: '576px',
+        s: {
+            width: '560px',
             fields: '10px'
         },
-        xxs: {
+        xs: {
             width: '420px',
             fields: '10px'
         }
