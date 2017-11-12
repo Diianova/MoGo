@@ -188,6 +188,13 @@ h5{
             font-size: 18px;
         }
 	}
+	&__link{
+		position: relative;
+		padding: 10px 15px;
+		display: block;
+		color: $color_white;
+		transition: all .3s;
+	}
 	&__item{
 		a{
 			position: relative;
@@ -215,6 +222,7 @@ h5{
 			}
 		}
 	}
+
     &_show {
         @include sm-block{
             transform: translateY(0);

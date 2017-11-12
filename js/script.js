@@ -1,5 +1,20 @@
 $(function(){
 
+  //Scroll effects
+  var links = $('.js-menu-list .js-menu-link');
+
+  links.on('click', function(e){
+    e.preventDefault();
+
+    var selector = $(this).attr('href');
+    var h = $(selector);
+
+    $('html, body').animate({
+      scrollTop: h.offset().top
+    }, 500);
+
+  });
+
 	//Humburger menu
   	var menuBtn = $('.js-menu-bnt');
   	var menuBtnIcon = $('.js-menu-btn-icon');
@@ -25,4 +40,5 @@ $(function(){
         $('.js-service-icon').removeClass('icon-up-open-big');
         $(this).find('.js-service-icon').addClass('icon-up-open-big');
     });
+
 });
