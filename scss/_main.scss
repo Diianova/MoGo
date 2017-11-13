@@ -342,6 +342,9 @@ h5{
 				@include maskForImg;
 			    flex-direction: column;
 				font-size: 18px;
+				@include xs-block{
+					font-size: 18px;
+				}
 				&:hover{
 					opacity: 1;
 				}
@@ -748,6 +751,11 @@ h5{
 		@include size(4);
 		@include size-xs(12);
 		text-align: center;
+		&:nth-child(-n+2){
+			@include xs-block{
+				margin-bottom: 40px;
+			}
+		}
 
 		&__photo{
 			cursor: pointer;
@@ -765,6 +773,9 @@ h5{
 			.social{
 				@include maskForImg;
 				font-size: 16px;
+				@include xs-block{
+					font-size: 18px;
+				}
 				&:hover{
 					opacity: 1;
 				}
@@ -844,6 +855,9 @@ h5{
 	&__offset{
 		padding-top: 50%;
 		height: 0;
+		@include s-block{
+			padding-top: 200%;
+		}
 	}
 	&__content{
 	    position: absolute;
@@ -863,6 +877,11 @@ h5{
 		    background-position: center center;
 		    background-repeat: no-repeat;
 		    cursor: pointer;
+		    @include s-block{
+		    	width: 50%;
+		    	flex: 1 1 25%;
+		    	flex-wrap: wrap;
+		    }
 
 			&_1{
 				background-image: url('../img/pic1.jpg');
@@ -893,8 +912,20 @@ h5{
 			transition: all .5s;
 			font-size: 14px;
 			color: #fff;
+			@include s-block{
+				font-size: 12px;
+			}
+			@include xs-block{
+				font-size: 10px;
+			}
 			&:hover{
 				opacity: 1;
+			}
+			&__img{
+				@include xs-block{
+					width: 15%;
+					height: auto;
+				}
 			}
 			&__name{
 				@extend %regular-m;

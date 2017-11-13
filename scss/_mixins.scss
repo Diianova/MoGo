@@ -5,6 +5,7 @@
 	height: 100%;
 	opacity: 0;
 	z-index: 2;
+	text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,8 +19,5 @@
 	}
 	@include s-block{
 		font-size: 10px;
-	}
-	@include xs-block{
-		font-size: 18px;
 	}
 }
