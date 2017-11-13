@@ -41,4 +41,27 @@ $(function(){
         $(this).find('.js-service-icon').addClass('icon-up-open-big');
     });
 
+  //Back to top button
+  	var backToTopBtn = $('.js-back-top');
+
+ 	backToTopBtn.on('click', function(e){
+	    $('html, body').animate({
+	      	scrollTop: 0}, 500);
+	      	e.preventDefault();
+  	});
+
+  	$(window).on('scroll', function(){
+	    var height = $(this).height();
+	    var top = $(this).scrollTop();
+	    console.log(top, height);
+
+	    if(top > 325){
+	      	if(!backToTopBtn.is(':visible')){
+	        	backToTopBtn.show();
+	      	}
+	    }else{
+	      	backToTopBtn.hide();
+	    }
+  	});
+
 });

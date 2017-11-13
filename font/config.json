@@ -167,6 +167,18 @@
       "css": "left-open",
       "code": 61447,
       "src": "mfglabs"
+    },
+    {
+      "uid": "afdb6de29702e88d79539d600c42d4a8",
+      "css": "comment-alt",
+      "code": 59405,
+      "src": "elusive"
+    },
+    {
+      "uid": "b91c0e6aaab5e3146732b69dd418e120",
+      "css": "up-open",
+      "code": 59406,
+      "src": "elusive"
     }
   ]
 }
