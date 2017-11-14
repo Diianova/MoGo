@@ -42,7 +42,7 @@ $(function(){
     });
 
   //Back to top button
-  	var backToTopBtn = $('.js-back-top');
+  var backToTopBtn = $('.js-back-top');
 
  	backToTopBtn.on('click', function(e){
 	    $('html, body').animate({
@@ -53,7 +53,6 @@ $(function(){
   	$(window).on('scroll', function(){
 	    var height = $(this).height();
 	    var top = $(this).scrollTop();
-	    console.log(top, height);
 
 	    if(top > 325){
 	      	if(!backToTopBtn.is(':visible')){
@@ -64,4 +63,18 @@ $(function(){
 	    }
   	});
 
+    //Slider for the main banner
+    var mainBanner = $('.header');
+    var mainBannerImgs = ["mb-img1.jpeg", "mb-img2.jpeg", "mb-img3.jpeg", "mb-img0.jpeg"];
+    var index = 0;
+
+    function newImage(){
+        mainBanner.css('background-image', 'url("img/'+mainBannerImgs[index]+'")');
+        index++;
+        console.log(index);
+        if(index == mainBannerImgs.length){
+            index = 0;
+        }
+    }
+    setInterval(newImage, 5000);
 });
