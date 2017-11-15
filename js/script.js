@@ -1,19 +1,18 @@
 $(function(){
 
-  //Scroll effects
-  var links = $('.js-menu-list .js-menu-link');
+    //Scroll effects
+    var links = $('.js-menu-list .js-menu-link');
 
-  links.on('click', function(e){
-    e.preventDefault();
+    links.on('click', function(e){
+        e.preventDefault();
 
-    var selector = $(this).attr('href');
-    var h = $(selector);
+        var selector = $(this).attr('href');
+        var h = $(selector);
 
-    $('html, body').animate({
-      scrollTop: h.offset().top
-    }, 500);
-
-  });
+        $('html, body').animate({
+          scrollTop: h.offset().top
+        }, 500);
+    });
 
 	//Humburger menu
   	var menuBtn = $('.js-menu-bnt');
@@ -41,8 +40,8 @@ $(function(){
         $(this).find('.js-service-icon').addClass('icon-up-open-big');
     });
 
-  //Back to top button
-  var backToTopBtn = $('.js-back-top');
+    //Back to top button
+    var backToTopBtn = $('.js-back-top');
 
  	backToTopBtn.on('click', function(e){
 	    $('html, body').animate({
@@ -51,16 +50,21 @@ $(function(){
   	});
 
   	$(window).on('scroll', function(){
-	    var height = $(this).height();
-	    var top = $(this).scrollTop();
+	    var scrollHeight = $(this).height();
+	    var scrollTop = $(this).scrollTop();
+        var counterTop = $('#about').offset().top;
 
-	    if(top > 325){
+	    if(scrollTop > 325){
 	      	if(!backToTopBtn.is(':visible')){
 	        	backToTopBtn.show();
 	      	}
 	    }else{
 	      	backToTopBtn.hide();
 	    }
+
+        if(scrollTop > counterTop){
+            counter();
+        }
   	});
 
     //Slider for the main banner
@@ -71,10 +75,32 @@ $(function(){
     function newImage(){
         mainBanner.css('background-image', 'url("img/'+mainBannerImgs[index]+'")');
         index++;
-        console.log(index);
         if(index == mainBannerImgs.length){
             index = 0;
         }
     }
     setInterval(newImage, 5000);
+
+    //Counter
+    function counter(){
+        $('.amount').each(function () {
+            var $this = $(this);
+                countTo = $this.attr('data-count');
+
+            $this.prop('Counter',0).animate({
+                Counter: $this.text(),
+                countNum: countTo
+            }, {
+                duration: 2000,
+                easing: 'swing',
+                step: function (now) {
+                     $this.text(Math.ceil(now));
+                },
+                complete: function(){
+                    $this.text(this.countNum);
+                }
+            });
+        });
+    }
+
 });
