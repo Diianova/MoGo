@@ -646,14 +646,21 @@ h5{
 	background: #f8f8f8;
 }
 .reviews-slider{
+	&__slides{
+	    display: flex;
+	    position: relative;
+	    transition: all ease .2s;
+	}
 	&__wrapper{
 		position: relative;
 		padding: 70px 0;
+		overflow: hidden;
 	}
 	&__item{
-		margin: 0 auto;
+	    margin: 0 5%;
 		width: 90%;
 		display: flex;
+		flex-shrink: 0;
 		@include s-block{
 			flex-direction: column;
 		}
@@ -756,6 +763,7 @@ h5{
 		top: 50%;
 	    color: #cccccc;
 		font-size: 20px;
+		cursor: pointer;
 		&_next{
 			right: 0;
 		}
