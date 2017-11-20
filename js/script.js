@@ -104,59 +104,79 @@ $(function(){
     }
 
     //Slider
-    var slideCurrent = 1;
-    var slideAmount = $('.js-slides').children().length;
-    var slideInterval = 3000;
-    var switchInterval = setInterval(nextSlide, slideInterval);
-
-    $('.js-next-btn').hover(function() {
-        clearInterval(switchInterval);
-    }, function() {
-        switchInterval = setInterval(nextSlide, slideInterval);
+    var slider1 = new slider({
+        slides: '.js-slides',
+        btnPrev: '.js-prev-btn',
+        btnNext: '.js-next-btn',
+        rate: 3000
     });
 
-    $('.js-prev-btn').hover(function() {
-        clearInterval(switchInterval);
-    }, function() {
-        switchInterval = setInterval(nextSlide, slideInterval);
+    var slider2 = new slider({
+        slides: '.js-reviews-slides',
+        btnPrev: '.js-reviews-btn-prev',
+        btnNext: '.js-reviews-btn-next',
+        rate: 3000
     });
 
-    $('.js-next-btn').click(function() {
-        nextSlide();
-    });
+    function slider(options){
+        var slideCurrent = 1;
+        var allSlides = $(options.slides);
+        var slideAmount = $(options.slides).children().length;
+        var btnPrev = $(options.btnPrev);
+        var btnNext = $(options.btnNext);
+        var slideInterval = options.rate;
+        var switchInterval = setInterval(nextSlide, slideInterval);
 
-    $('.js-prev-btn').click(function() {
-        prevSlide();
-    });
-
-    function nextSlide() {
-        translateWidth = -$('.container').width() * (slideCurrent);
-        $('.js-slides').css({
-            'transform': 'translate(' + translateWidth  + 'px, 0)',
-            '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
-            '-ms-transform': 'translate(' + translateWidth + 'px, 0)',
+        btnNext.click(function() {
+            nextSlide();
         });
-        slideCurrent++;
 
-        if ( slideCurrent <= 0 || slideCurrent > slideAmount) {
-            $('.js-slides').css('transform', 'translate(0, 0)');
-            slideCurrent = 1;
+        btnPrev.click(function() {
+            prevSlide();
+        });
+
+        btnNext.hover(function() {
+            clearInterval(switchInterval);
+        }, function() {
+            switchInterval = setInterval(nextSlide, slideInterval);
+        });
+
+        btnPrev.hover(function() {
+            clearInterval(switchInterval);
+        }, function() {
+            switchInterval = setInterval(prevSlide, slideInterval);
+        });
+
+        function nextSlide() {
+            translateWidth = -$('.container').width() * (slideCurrent);
+            allSlides.css({
+                'transform': 'translate(' + translateWidth  + 'px, 0)',
+                '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
+                '-ms-transform': 'translate(' + translateWidth + 'px, 0)',
+            });
+            slideCurrent++;
+
+            if ( slideCurrent <= 0 || slideCurrent > slideAmount) {
+                allSlides.css('transform', 'translate(0, 0)');
+                slideCurrent = 1;
+            }
+        }
+
+        function prevSlide() {
+            translateWidth = -$('.container').width() * (slideAmount - slideCurrent);
+            allSlides.css({
+                'transform': 'translate(' + translateWidth  + 'px, 0)',
+                '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
+                '-ms-transform': 'translate(' + translateWidth + 'px, 0)',
+            });
+            slideCurrent++;
+
+            if ( slideCurrent <= 0 || slideCurrent > slideAmount) {
+                allSlides.css('transform', 'translate(0, 0)');
+                slideCurrent = 1;
+            }
         }
     }
 
-    function prevSlide() {
-        translateWidth = -$('.container').width() * (slideAmount - slideCurrent);
-        $('.js-slides').css({
-            'transform': 'translate(' + translateWidth  + 'px, 0)',
-            '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
-            '-ms-transform': 'translate(' + translateWidth + 'px, 0)',
-        });
-        slideCurrent++;
-
-        if ( slideCurrent <= 0 || slideCurrent > slideAmount) {
-            $('.js-slides').css('transform', 'translate(0, 0)');
-            slideCurrent = 1;
-        }
-    }
 
 });
