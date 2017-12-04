@@ -70,7 +70,38 @@ $(function(){
     //Slider for the main banner
     var mainBanner = $('.header');
     var mainBannerImgs = ["mb-img1.jpeg", "mb-img2.jpeg", "mb-img3.jpeg", "mb-img0.jpeg"];
+    var mainBannerRunnerLines = $('.js-runner-line');
     var index = 0;
+    var j = 0;
+
+    mainBannerRunnerLines.eq(j).animate({
+        width: "100%",
+    }, 5000, runnerLines);
+
+    var runnerLines = setInterval(function() {
+        mainBannerRunnerLines.css("width", "0");
+        mainBannerRunnerLines.eq(j+1).animate({
+            width: "100%",
+        }, 4000);
+        j++;
+
+        if (j == mainBannerRunnerLines.length - 1) {
+            clearInterval(runnerLines);
+            j = 0;
+            setInterval(insideRL, 5000);
+        }
+    }, 5000);
+
+    function insideRL(){
+        mainBannerRunnerLines.css("width", "0");
+        mainBannerRunnerLines.eq(j).animate({
+            width: "100%",
+        }, 4000);
+        j++;
+        if( j >= mainBannerRunnerLines.length){
+            j = 0;
+        }
+    };
 
     function newImage(){
         mainBanner.css('background-image', 'url("img/'+mainBannerImgs[index]+'")');
@@ -80,6 +111,7 @@ $(function(){
         }
     }
     setInterval(newImage, 5000);
+
 
     //Counter
     function counter(){
@@ -103,7 +135,7 @@ $(function(){
         });
     }
 
-    //Slider
+    //Sliders
     var slider1 = new slider({
         slides: '.js-slides',
         btnPrev: '.js-prev-btn',

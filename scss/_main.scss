@@ -330,6 +330,7 @@ h5{
 		@include col();
 		@include size(3);
 		@extend %regular-m;
+		position: relative;
 		padding: 1.6em 0;
 		border-top: 2px solid $color_white;
 		text-align: left;
@@ -337,9 +338,17 @@ h5{
 		font-size: 1.3em;
 		color: $color_white;
 
-		span{
+		.slide-nr{
 			@extend %bold-m;
 			font-size: 1.5em;
+		}
+		.running-line{
+			position: absolute;
+			top: -2px;
+			left: 0;
+			height: 2px;
+			width: 0;
+			background: $color_pink;
 		}
 	}
 }
@@ -1219,8 +1228,15 @@ h5{
 
 		&__item{
 			margin: 0 5px;
+			transition: all .3s;
+			&:hover{
+				transform: scale(1.1);
+			}
 			i{
 				color: $color_turquoise;
+				&:hover{
+					color: #4ccdb5;
+				}
 			}
 		}
 
@@ -1312,6 +1328,10 @@ h5{
 		background: $color_turquoise;
 		color: #fff;
 		cursor: pointer;
+		transition: background 0.3s;
+		&:hover{
+			background: #74d8c5;
+		}
 	}
 }
 .copyright{
