@@ -210,5 +210,23 @@ $(function(){
         }
     }
 
+    //google map
+    function initMap() {
+        var centerLatLng = new google.maps.LatLng(52.234288, 21.006228);
+
+        var mapOptions = {
+            center: centerLatLng,
+            zoom: 10
+        };
+
+        var map = new google.maps.Map(document.getElementById("contact"), mapOptions);
+    }
+
+    $(".js-map-btn").click(function(){
+        initMap();
+        $(".map").css("background", "0");
+    });
+
+
 
 });

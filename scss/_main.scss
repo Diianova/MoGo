@@ -1118,12 +1118,19 @@ h5{
 }
 
 .map{
+	position: relative;
 	padding: 60px 0 50px;
+	height: 100px;
 	background: url("../img/bg-map.jpg");
 	position: center center;
 	background-size: cover;
 	text-align: center;
 	color: $color_pink;
+
+	&__block{
+		display: inline-block;
+		cursor: pointer;
+	}
 
 	&__icon{
 		font-size: 24px;
@@ -1345,3 +1352,4 @@ h5{
     	color: $color_pink;
     }
 }
+
